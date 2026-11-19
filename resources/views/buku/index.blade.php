@@ -137,7 +137,7 @@
                                     {{-- Menggunakan sintaks {{ }} agar teks di-escape otomatis (HTML entities)    --}}
                                     {{-- ========================================================================= --}}
                                     <a href="{{ route('buku.show', $bukuId) }}" style="color: #2563eb; text-decoration: none;">
-                                        {!!$bukuJudul !!}
+                                        {{ $bukuJudul }}
                                     </a>
                                     {{-- ========================================================================= --}}
                                     {{-- AKHIR PERBAIKAN SOAL 2 (a)                                                --}}
