@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build && node -e \"fs.cpSync('public', 'dist', {recursive: true})\"",
+        "build": "vite build && node -e \"fs.cpSync('public', 'dist', {recursive: true}); fs.rmSync('dist/index.php', {force: true}); fs.rmSync('dist/.htaccess', {force: true});\"",
         "dev": "vite"
     },
     "devDependencies": {
