@@ -1,6 +1,7 @@
 <?php
 
-// [SOAL 3] Entry point Vercel Serverless untuk Laravel$tmpStorage = '/tmp/storage';
+// [SOAL 3] Entry point Vercel Serverless untuk Laravel
+$tmpStorage = '/tmp/storage';
 
 // Ensure storage subdirectories exist in /tmp
 if (! is_dir($tmpStorage)) {
