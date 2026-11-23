@@ -39,4 +39,8 @@ putenv('APP_ROUTES_CACHE=/tmp/routes-v7.php');
 putenv('APP_EVENTS_CACHE=/tmp/events.php');
 
 // Forward request to Laravel public/index.php
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 require __DIR__.'/../public/index.php';
